@@ -5,7 +5,6 @@ import csv
 from datetime import datetime
 
 
-
 def get_numbers(filename):
     result = []
     with open(filename, 'r') as csv_file:
@@ -27,9 +26,16 @@ print("Hora: {} - Minuto: {} - Segundo: {}".format(h, m, s))
 # de gif")
 
 phone_number = get_numbers("mynumber.csv")
+phone_number_links = get_numbers("numberlinks.csv")
+
+print(phone_number)
+print(len(phone_number_links))
 
 try:
     pwk.sendwhatmsg(phone_number[0], 'Hola este es un mensaje de prueba', int(h), int(m) + 1, tab_close=True)
+    # pwk.sendwhatmsg(phone_number_links[0], 'Hola este es un mensaje de prueba', int(h), int(m) + 1, tab_close=True)
+
     print("Envio exitoso")
+
 except:
     print("Ha ocurrido un error")
