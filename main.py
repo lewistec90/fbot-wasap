@@ -31,11 +31,10 @@ phone_number_links = get_numbers("numberlinks.csv")
 print(phone_number)
 print(len(phone_number_links))
 
-try:
-    pwk.sendwhatmsg(phone_number[0], 'Hola este es un mensaje de prueba', int(h), int(m) + 1, tab_close=True)
-    # pwk.sendwhatmsg(phone_number_links[0], 'Hola este es un mensaje de prueba', int(h), int(m) + 1, tab_close=True)
-
-    print("Envio exitoso")
-
-except:
-    print("Ha ocurrido un error")
+for link in phone_number_links:
+    try:
+        pwk.sendwhatmsg(link, 'Hola,que tal? de añosss', int(h), int(m) + 1, tab_close=True)
+        # pwk.sendwhatmsg(phone_number_links[0], 'Hola este es un mensaje de prueba', int(h), int(m) + 1, tab_close=True)
+        print("Envio exitoso")
+    except:
+        print("Ha ocurrido un error")
